@@ -1,0 +1,24 @@
+body{margin:0;
+font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+background-image: url(https://t4.ftcdn.net/jpg/00/20/93/09/360_F_20930951_OsChDJBb0AZRr0Bdu1IjXt2qLxaY5upK.jpg);
+background-size: 1500px;
+color:whitesmoke;
+}
+.superman{width: 600px;
+height: 400px;
+}
+.mainpage{text-align: center;}
+#game-board{display: none;
+justify-content: center;
+align-items: center;
+}
+#game-over{text-align: center;
+    background-image: url(https://t4.ftcdn.net/jpg/00/20/93/09/360_F_20930951_OsChDJBb0AZRr0Bdu1IjXt2qLxaY5upK.jpg);
+    background-size:1500px;
+    color:whitesmoke;
+margin:0;
+font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+display:none;
+}
+.superman1{width: 600px;
+    height: 400px;}
