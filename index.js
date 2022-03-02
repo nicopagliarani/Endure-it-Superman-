@@ -72,10 +72,10 @@ let civilian;
 
 
 function preload() {
-  bg= loadImage("/background.jpg")
-  superman= loadImage("/superman.png");
-  kryptonite=loadImage("/kryptonite.png");
-  civilian=loadImage("/civilian.png");
+  bg= loadImage("background.jpg")
+  superman= loadImage("superman.png");
+  kryptonite=loadImage("kryptonite.png");
+  civilian=loadImage("civilian.png");
   
 
   
