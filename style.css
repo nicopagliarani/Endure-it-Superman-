@@ -21,4 +21,8 @@ font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 display:none;
 }
 .superman1{width: 600px;
-    height: 400px;}
+    height: 400px;
+margin-left:150px;}
+    .tabella{display:flex}
+    
+    

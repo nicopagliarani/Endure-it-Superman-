@@ -1,5 +1,7 @@
 //score
-let score=0
+let currentScore=0
+let highscores=[];
+let highScoresTable=document.getElementById("high-scores-table")
 //song
 let song=new Audio('/musiclong.mp3')
 song.volume = 0.2;
@@ -22,9 +24,10 @@ let restartBtn = document.querySelector("#restartBtn");
 //Superman features
 let supermanHeight = 150;
 let supermanWidth = 120;
-let supermanX =600;
+let supermanX = 600;
 let supermanStartY = innerHeight - supermanHeight;
 //Kryptonite features
+let speedKrypto=4
 let kryptoX = 0;
 let kryptoY = 0;
 let kryptoLength = 70;
@@ -81,12 +84,13 @@ function setup() {
   const canvas=createCanvas(innerWidth,innerHeight);
   canvas.parent("game-board");
   
+  
  
 }
 
 function draw() {
 background(bg)
-text("Score"+":"+" "+score,50,40);
+text("Score"+":"+" "+currentScore,50,40);
 textStyle(BOLD);
 textSize(35);
 textFont('Georgia');
@@ -122,7 +126,7 @@ for (let i = 0; i < objectArray.length; i++) {
     }
     if (objectArray[i].y > innerHeight) {
       objectArray[i].y = 0;
-      score++
+      currentScore++
     }
     for (let i = 0; i < civilians.length; i++) {
       image(
@@ -141,8 +145,7 @@ for (let i = 0; i < objectArray.length; i++) {
       ) {civilians[i].y=-1000;
         life++;
         thankyou.play();
-
-      }
+        }
       if (civilians[i].y > innerHeight) {
         civilians[i].y = 0;
         
@@ -164,27 +167,59 @@ function playerName(){
   let text;
   let person=prompt("Hey Player! What's your name?");
   if (person == null || person == "") {
-    text = "Your Score is:"+" "+score;
+    text = "Your Score is:"+" "+currentScore;
     let punteggioFinale=document.getElementById("punteggio")
     punteggioFinale.innerHTML=text;
   } else {
-    text = "Hello " + person + "! Your Score is:"+" "+score;
+    text = "Hello " + person + "! Your Score is:"+" "+currentScore;
   let punteggioFinale=document.getElementById("punteggio")
 punteggioFinale.innerHTML=text;}
+}
+function highScores(){
+  
+  let text1;
+  let namess=prompt("Wow! That's a new record! Enter your name:");
+  if(namess ==null || namess == ""){
+    text1="???"
+    
+    let currentHighScore={name:text1,
+  score:currentScore}
+  highscores.push(currentHighScore)
+    
+  }else{
+    text1= namess
+    currentHighScore={name:text1,
+    score:currentScore}
+    highscores.push(currentHighScore)
+    console.log("first",highscores)
+      let sorted=highscores.sort((a,b)=>{
+       return b.score-a.score
+        
+      })
+      highscores=sorted
+    console.log("second",sorted)
+    
+  }
+}
+function displayHighScores(){
+  for(let i=0;i<highscores.length;i++){
+    let list=document.createElement('li')
+    list.innerText=`${highscores[i].name}:-${highscores[i].score}`
+    highScoresTable.appendChild(list)
+  }
 }
 function gameOver() {
   song.pause();
   playerName();
+  highScores();
+  displayHighScores();
   introPage.style.display = "none";
   gameBoard.style.display = "none";
   endPage.style.display = "block";
 noLoop();
   song2.play();
 }
-function top10(){
-  let topScores=[];
-  
-}
+
 
 
 
@@ -220,12 +255,13 @@ function top10(){
     
 
        restartBtn.addEventListener("click", () => {
+        highScoresTable.innerHTML="";
         introPage.style.display = "none";
         gameBoard.style.display = "flex";
         endPage.style.display = "none";
         supermanX=600;
         gameIsOver = false;
-        score=0;
+        currentScore=0;
         life=3;
         objectArray = [
           { x: Math.floor(Math.random() * innerWidth), y: kryptoY},
