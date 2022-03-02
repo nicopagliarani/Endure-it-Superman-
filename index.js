@@ -3,12 +3,12 @@ let currentScore=0
 let highscores=[];
 let highScoresTable=document.getElementById("high-scores-table")
 //song
-let song=new Audio('/musiclong.mp3')
+let song=new Audio('musiclong.mp3')
 song.volume = 0.2;
-let song2=new Audio('/gameover.mp3')
+let song2=new Audio('gameover.mp3')
 song2.volume =0.2;
-let blow= new Audio('./blow.wav')
-let thankyou= new Audio('/thankyou.mp3')
+let blow= new Audio('blow.wav')
+let thankyou= new Audio('thankyou.mp3')
 //Gameover
 let gameIsOver = false;
 //LifeMinus
