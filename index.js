@@ -185,6 +185,10 @@ function highScores(){
     let currentHighScore={name:text1,
   score:currentScore}
   highscores.push(currentHighScore)
+  let sorted=highscores.sort((a,b)=>{
+    return b.score-a.score
+     
+   })
     
   }else{
     text1= namess
