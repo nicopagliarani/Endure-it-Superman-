@@ -138,8 +138,8 @@ for (let i = 0; i < objectArray.length; i++) {
       );
       civilians[i].y += 0.1;
       if (
-        supermanStartY >= civilians[i].y + 20 &&
-        supermanStartY <= civilians[i].y + civilianHeight - 40 &&
+        civilians[i].y+ kryptoHeight >=supermanStartY   &&
+        //supermanStartY <= civilians[i].y + civilianHeight - 40 &&
         supermanX + supermanWidth >= civilians[i].x &&
         supermanX <= civilians[i].x + civilianLength
       ) {civilians[i].y=-1000;
