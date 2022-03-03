@@ -22,8 +22,8 @@ const endPage= document.getElementById("game-over");
 let startBtn = document.querySelector("#startBtn");
 let restartBtn = document.querySelector("#restartBtn");
 //Superman features
-let supermanHeight = 150;
-let supermanWidth = 120;
+let supermanHeight = 120;
+let supermanWidth = 110;
 let supermanX = 600;
 let supermanStartY = innerHeight - supermanHeight;
 //Kryptonite features
@@ -34,20 +34,16 @@ let kryptoLength = 70;
 let kryptoHeight = 70;
 let objectArray = [
   { x: Math.floor(Math.random() * 900), y: kryptoY},
-          { x: Math.floor(Math.random() * 900), y: kryptoY-50},
-          { x: Math.floor(Math.random() * 900), y: kryptoY-100},
-          { x: Math.floor(Math.random() * 900), y: kryptoY-150},
-          { x: Math.floor(Math.random() * 900), y: kryptoY-200},
-          { x: Math.floor(Math.random() * 900), y: kryptoY-250},
-          { x: Math.floor(Math.random() * 900), y: kryptoY-300},
-          { x: Math.floor(Math.random() * 900), y: kryptoY-350},
-          { x: Math.floor(Math.random() * 900), y: kryptoY-400},
-          { x: Math.floor(Math.random() * 900), y: kryptoY-450},
-          { x: Math.floor(Math.random() * 900), y: kryptoY-500},
-          { x: Math.floor(Math.random() * 900), y: kryptoY-550},
-          { x: Math.floor(Math.random() * 900), y: kryptoY-600},
-          { x: Math.floor(Math.random() * 900), y: kryptoY-650},
-          { x: Math.floor(Math.random() * 900), y: kryptoY-700},]
+  { x: Math.floor(Math.random() * 900), y: kryptoY-100},
+  { x: Math.floor(Math.random() * 900), y: kryptoY-200},
+  { x: Math.floor(Math.random() * 900), y: kryptoY-300},
+  { x: Math.floor(Math.random() * 900), y: kryptoY-400},
+  { x: Math.floor(Math.random() * 900), y: kryptoY-500},
+  { x: Math.floor(Math.random() * 900), y: kryptoY-600},
+  { x: Math.floor(Math.random() * 900), y: kryptoY-700},
+  { x: Math.floor(Math.random() * 900), y: kryptoY-800},
+  { x: Math.floor(Math.random() * 900), y: kryptoY-900},
+  { x: Math.floor(Math.random() * 900), y: kryptoY-1000},]
   //Civilians Features
 let civilianX = 0;
 let civilianY = 0;
@@ -98,12 +94,14 @@ class Cloud {
   }
 display() {
     noStroke()
+    fill(255)
     ellipse(this.x, this.y, 100, 50);
     ellipse(this.x+50, this.y+20, 100, 50);
     ellipse(this.x-40, this.y+15, 100, 50);
-
-  }
-
+}}
+function drawSun() {
+  fill(300, 300, 100)
+  ellipse(30, 30, 100)
 }
 
 
@@ -111,7 +109,8 @@ display() {
 
 function draw() {
 background(72,180,224)
-text("Score"+":"+" "+currentScore,50,40);
+fill(0);
+text("Score"+":"+" "+currentScore,90,40);
 textStyle(BOLD);
 textSize(35);
 textFont('Georgia');
@@ -126,12 +125,7 @@ myCloud.display();
 
 myCloud2.moveX();
 myCloud2.display();
-
-
-
-
-
-
+drawSun();
 
 for (let i = 0; i < objectArray.length; i++) {
     image(
@@ -141,7 +135,7 @@ for (let i = 0; i < objectArray.length; i++) {
       kryptoLength,
       kryptoHeight
     );
-    objectArray[i].y += 3;
+    objectArray[i].y += 2.5;
     if (
       objectArray[i].y+ kryptoHeight >=supermanStartY   &&
       //supermanStartY <= objectArray[i].y + kryptoHeight - 40 &&
@@ -255,24 +249,7 @@ noLoop();
   song2.play();
 }
 
-
-
-
-
-
-  //const supermanWidth=125;
-  //const supermanHeight=125;
-  //const groundLevel=height-supermanHeight;
-  //const middle=width/2-supermanWidth/2
-  
-    
-  
-  //background(bg);
-  //image(player,middle,groundLevel,supermanWidth,supermanHeight);
-  
-  
-  
-  function startGame() {loop();
+function startGame() {loop();
     introPage.style.display="none";
      const gameBoard = document.getElementById("game-board")
      gameBoard.style.display="flex";
@@ -300,20 +277,16 @@ noLoop();
         life=3;
         objectArray = [
           { x: Math.floor(Math.random() * 900), y: kryptoY},
-          { x: Math.floor(Math.random() * 900), y: kryptoY-50},
           { x: Math.floor(Math.random() * 900), y: kryptoY-100},
-          { x: Math.floor(Math.random() * 900), y: kryptoY-150},
           { x: Math.floor(Math.random() * 900), y: kryptoY-200},
-          { x: Math.floor(Math.random() * 900), y: kryptoY-250},
           { x: Math.floor(Math.random() * 900), y: kryptoY-300},
-          { x: Math.floor(Math.random() * 900), y: kryptoY-350},
           { x: Math.floor(Math.random() * 900), y: kryptoY-400},
-          { x: Math.floor(Math.random() * 900), y: kryptoY-450},
           { x: Math.floor(Math.random() * 900), y: kryptoY-500},
-          { x: Math.floor(Math.random() * 900), y: kryptoY-550},
           { x: Math.floor(Math.random() * 900), y: kryptoY-600},
-          { x: Math.floor(Math.random() * 900), y: kryptoY-650},
-          { x: Math.floor(Math.random() * 900), y: kryptoY-700},];
+          { x: Math.floor(Math.random() * 900), y: kryptoY-700},
+          { x: Math.floor(Math.random() * 900), y: kryptoY-800},
+          { x: Math.floor(Math.random() * 900), y: kryptoY-900},
+          { x: Math.floor(Math.random() * 900), y: kryptoY-1000},];
         civilians=[ { x: Math.floor(Math.random() * 900), y: civilianY-100},
           { x: Math.floor(Math.random() * 900), y: civilianY-400},
           { x: Math.floor(Math.random() * 900), y: civilianY-700},]
@@ -322,6 +295,16 @@ noLoop();
         song2.pause();
       })
     })
+
+  //const supermanWidth=125;
+  //const supermanHeight=125;
+  //const groundLevel=height-supermanHeight;
+  //const middle=width/2-supermanWidth/2
+  
+    
+  
+  //background(bg);
+  //image(player,middle,groundLevel,supermanWidth,supermanHeight);
     
     
      
