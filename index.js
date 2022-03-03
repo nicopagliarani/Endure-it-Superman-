@@ -169,10 +169,9 @@ for (let i = 0; i < objectArray.length; i++) {
         life++;
         thankyou.play();
         }
-      if (civilians[i].y > innerHeight) {
+        if (civilians[i].y > innerHeight) {
         civilians[i].y = 0;
-        
-      }}}
+        }}}
   if (keyIsPressed && keyCode === LEFT_ARROW && supermanX > 0) {
     supermanX -= 5;
   } else if (
