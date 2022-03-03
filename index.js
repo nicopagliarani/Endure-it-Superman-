@@ -41,9 +41,7 @@ let objectArray = [
   { x: Math.floor(Math.random() * 900), y: kryptoY-500},
   { x: Math.floor(Math.random() * 900), y: kryptoY-600},
   { x: Math.floor(Math.random() * 900), y: kryptoY-700},
-  { x: Math.floor(Math.random() * 900), y: kryptoY-800},
-  { x: Math.floor(Math.random() * 900), y: kryptoY-900},
-  { x: Math.floor(Math.random() * 900), y: kryptoY-1000},]
+  { x: Math.floor(Math.random() * 900), y: kryptoY-800},]
   //Civilians Features
 let civilianX = 0;
 let civilianY = 0;
@@ -284,9 +282,7 @@ function startGame() {loop();
           { x: Math.floor(Math.random() * 900), y: kryptoY-500},
           { x: Math.floor(Math.random() * 900), y: kryptoY-600},
           { x: Math.floor(Math.random() * 900), y: kryptoY-700},
-          { x: Math.floor(Math.random() * 900), y: kryptoY-800},
-          { x: Math.floor(Math.random() * 900), y: kryptoY-900},
-          { x: Math.floor(Math.random() * 900), y: kryptoY-1000},];
+          { x: Math.floor(Math.random() * 900), y: kryptoY-800},];
         civilians=[ { x: Math.floor(Math.random() * 900), y: civilianY-100},
           { x: Math.floor(Math.random() * 900), y: civilianY-400},
           { x: Math.floor(Math.random() * 900), y: civilianY-700},]
