@@ -33,42 +33,39 @@ let kryptoY = 0;
 let kryptoLength = 70;
 let kryptoHeight = 70;
 let objectArray = [
-  { x: Math.floor(Math.random() * innerWidth), y: kryptoY},
-          { x: Math.floor(Math.random() * innerWidth), y: kryptoY-50},
-          { x: Math.floor(Math.random() * innerWidth), y: kryptoY-100},
-          { x: Math.floor(Math.random() * innerWidth), y: kryptoY-150},
-          { x: Math.floor(Math.random() * innerWidth), y: kryptoY-200},
-          { x: Math.floor(Math.random() * innerWidth), y: kryptoY-250},
-          { x: Math.floor(Math.random() * innerWidth), y: kryptoY-300},
-          { x: Math.floor(Math.random() * innerWidth), y: kryptoY-350},
-          { x: Math.floor(Math.random() * innerWidth), y: kryptoY-400},
-          { x: Math.floor(Math.random() * innerWidth), y: kryptoY-450},
-          { x: Math.floor(Math.random() * innerWidth), y: kryptoY-500},
-          { x: Math.floor(Math.random() * innerWidth), y: kryptoY-550},
-          { x: Math.floor(Math.random() * innerWidth), y: kryptoY-600},
-          { x: Math.floor(Math.random() * innerWidth), y: kryptoY-650},
-          { x: Math.floor(Math.random() * innerWidth), y: kryptoY-700},
-          { x: Math.floor(Math.random() * innerWidth), y: kryptoY-750},
-          { x: Math.floor(Math.random() * innerWidth), y: kryptoY-800},
-          { x: Math.floor(Math.random() * innerWidth), y: kryptoY-850},
-          { x: Math.floor(Math.random() * innerWidth), y: kryptoY-900},
-          { x: Math.floor(Math.random() * innerWidth), y: kryptoY-950},
-          { x: Math.floor(Math.random() * innerWidth), y: kryptoY-1000},]
+  { x: Math.floor(Math.random() * 900), y: kryptoY},
+          { x: Math.floor(Math.random() * 900), y: kryptoY-50},
+          { x: Math.floor(Math.random() * 900), y: kryptoY-100},
+          { x: Math.floor(Math.random() * 900), y: kryptoY-150},
+          { x: Math.floor(Math.random() * 900), y: kryptoY-200},
+          { x: Math.floor(Math.random() * 900), y: kryptoY-250},
+          { x: Math.floor(Math.random() * 900), y: kryptoY-300},
+          { x: Math.floor(Math.random() * 900), y: kryptoY-350},
+          { x: Math.floor(Math.random() * 900), y: kryptoY-400},
+          { x: Math.floor(Math.random() * 900), y: kryptoY-450},
+          { x: Math.floor(Math.random() * 900), y: kryptoY-500},
+          { x: Math.floor(Math.random() * 900), y: kryptoY-550},
+          { x: Math.floor(Math.random() * 900), y: kryptoY-600},
+          { x: Math.floor(Math.random() * 900), y: kryptoY-650},
+          { x: Math.floor(Math.random() * 900), y: kryptoY-700},]
   //Civilians Features
 let civilianX = 0;
 let civilianY = 0;
 let civilianLength = 100;
 let civilianHeight = 100;
 let civilians=[
-  { x: Math.floor(Math.random() * innerWidth), y: civilianY-100},
-  { x: Math.floor(Math.random() * innerWidth), y: civilianY-400},
-  { x: Math.floor(Math.random() * innerWidth), y: civilianY-700},
+  { x: Math.floor(Math.random() * 900), y: civilianY-100},
+  { x: Math.floor(Math.random() * 900), y: civilianY-400},
+  { x: Math.floor(Math.random() * 900), y: civilianY-700},
 ]
 
 //Images
 let bg;
 let superman;
 let civilian;
+let myCloud;
+let myCloud2;
+
 
 
 function preload() {
@@ -81,24 +78,58 @@ function preload() {
   
   }
 function setup() {
-  const canvas=createCanvas(innerWidth,innerHeight);
+  const canvas=createCanvas(1000,innerHeight);
   canvas.parent("game-board");
-  
-  
- 
+  myCloud = new Cloud(10, 120);
+  myCloud2 = new Cloud(240, 150);
+  }
+class Cloud {
+  constructor(startX, startY) {
+    this.x = startX;
+    this.y = startY;
+    this.colour = color(400, 400, 400);
+  }
+
+  moveX() {
+    this.x += 1;
+    if (this.x > width) {
+      this.x = 0;
+    }
+  }
+display() {
+    noStroke()
+    ellipse(this.x, this.y, 100, 50);
+    ellipse(this.x+50, this.y+20, 100, 50);
+    ellipse(this.x-40, this.y+15, 100, 50);
+
+  }
+
 }
 
+
+
+
 function draw() {
-background(bg)
+background(72,180,224)
 text("Score"+":"+" "+currentScore,50,40);
 textStyle(BOLD);
 textSize(35);
 textFont('Georgia');
-text("Lives"+":"+" "+life,1100,40);
+text("Lives"+":"+" "+life,800,40);
 textStyle(BOLD);
 textSize(35);
 textFont('Georgia');
 image(superman, supermanX, supermanStartY, supermanWidth, supermanHeight);
+
+myCloud.moveX();
+myCloud.display();
+
+myCloud2.moveX();
+myCloud2.display();
+
+
+
+
 
 
 
@@ -268,32 +299,24 @@ noLoop();
         currentScore=0;
         life=3;
         objectArray = [
-          { x: Math.floor(Math.random() * innerWidth), y: kryptoY},
-          { x: Math.floor(Math.random() * innerWidth), y: kryptoY-50},
-          { x: Math.floor(Math.random() * innerWidth), y: kryptoY-100},
-          { x: Math.floor(Math.random() * innerWidth), y: kryptoY-150},
-          { x: Math.floor(Math.random() * innerWidth), y: kryptoY-200},
-          { x: Math.floor(Math.random() * innerWidth), y: kryptoY-250},
-          { x: Math.floor(Math.random() * innerWidth), y: kryptoY-300},
-          { x: Math.floor(Math.random() * innerWidth), y: kryptoY-350},
-          { x: Math.floor(Math.random() * innerWidth), y: kryptoY-400},
-          { x: Math.floor(Math.random() * innerWidth), y: kryptoY-450},
-          { x: Math.floor(Math.random() * innerWidth), y: kryptoY-500},
-          { x: Math.floor(Math.random() * innerWidth), y: kryptoY-550},
-          { x: Math.floor(Math.random() * innerWidth), y: kryptoY-600},
-          { x: Math.floor(Math.random() * innerWidth), y: kryptoY-650},
-          { x: Math.floor(Math.random() * innerWidth), y: kryptoY-700},
-          { x: Math.floor(Math.random() * innerWidth), y: kryptoY-750},
-          { x: Math.floor(Math.random() * innerWidth), y: kryptoY-800},
-          { x: Math.floor(Math.random() * innerWidth), y: kryptoY-850},
-          { x: Math.floor(Math.random() * innerWidth), y: kryptoY-900},
-          { x: Math.floor(Math.random() * innerWidth), y: kryptoY-950},
-          { x: Math.floor(Math.random() * innerWidth), y: kryptoY-1000},
-          
-        ];
-        civilians=[ { x: Math.floor(Math.random() * innerWidth), y: civilianY-100},
-          { x: Math.floor(Math.random() * innerWidth), y: civilianY-400},
-          { x: Math.floor(Math.random() * innerWidth), y: civilianY-700},]
+          { x: Math.floor(Math.random() * 900), y: kryptoY},
+          { x: Math.floor(Math.random() * 900), y: kryptoY-50},
+          { x: Math.floor(Math.random() * 900), y: kryptoY-100},
+          { x: Math.floor(Math.random() * 900), y: kryptoY-150},
+          { x: Math.floor(Math.random() * 900), y: kryptoY-200},
+          { x: Math.floor(Math.random() * 900), y: kryptoY-250},
+          { x: Math.floor(Math.random() * 900), y: kryptoY-300},
+          { x: Math.floor(Math.random() * 900), y: kryptoY-350},
+          { x: Math.floor(Math.random() * 900), y: kryptoY-400},
+          { x: Math.floor(Math.random() * 900), y: kryptoY-450},
+          { x: Math.floor(Math.random() * 900), y: kryptoY-500},
+          { x: Math.floor(Math.random() * 900), y: kryptoY-550},
+          { x: Math.floor(Math.random() * 900), y: kryptoY-600},
+          { x: Math.floor(Math.random() * 900), y: kryptoY-650},
+          { x: Math.floor(Math.random() * 900), y: kryptoY-700},];
+        civilians=[ { x: Math.floor(Math.random() * 900), y: civilianY-100},
+          { x: Math.floor(Math.random() * 900), y: civilianY-400},
+          { x: Math.floor(Math.random() * 900), y: civilianY-700},]
         loop();
         song.play();
         song2.pause();
