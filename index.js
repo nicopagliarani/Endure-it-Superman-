@@ -3,12 +3,12 @@ let currentScore = 0;
 let highscores = [];
 let highScoresTable = document.getElementById("high-scores-table");
 //song
-let song = new Audio("musiclong.mp3");
+let song = new Audio("/Sounds/musiclong.mp3");
 song.volume = 0.2;
-let song2 = new Audio("gameover.mp3");
+let song2 = new Audio("/Sounds/gameover.mp3");
 song2.volume = 0.2;
-let blow = new Audio("blow.wav");
-let thankyou = new Audio("thankyou.mp3");
+let blow = new Audio("/Sounds/blow.wav");
+let thankyou = new Audio("/Sounds/thankyou.mp3");
 //Gameover
 let gameIsOver = false;
 //LifeMinus
@@ -62,9 +62,9 @@ let myCloud;
 let myCloud2;
 
 function preload() {
-  superman = loadImage("superman.png");
-  kryptonite = loadImage("kryptonite.png");
-  civilian = loadImage("civilian.png");
+  superman = loadImage("/Images/superman.png");
+  kryptonite = loadImage("/Images/kryptonite.png");
+  civilian = loadImage("/Images/civilian.png");
 }
 function setup() {
   const canvas = createCanvas(1000, innerHeight);
